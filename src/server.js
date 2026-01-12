@@ -11,7 +11,8 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://model-barber.vercel.app'
+    'https://model-barber.vercel.app',
+    'https://model-barber-frontend-f3yoepbb8-rairtons-projects.vercel.app'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
@@ -27,4 +28,5 @@ connectDB().then(() => {
     console.log(`Servidor rodando na porta ${PORT}`);
   });
 });
+
 
