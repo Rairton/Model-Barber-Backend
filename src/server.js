@@ -14,9 +14,10 @@ app.use(cors({
     'https://model-barber.vercel.app',
     'https://model-barber-frontend-f3yoepbb8-rairtons-projects.vercel.app'
   ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+app.options('*', cors());
 app.use(bodyParser.json());
 app.use('/api', routes);
 
@@ -28,5 +29,6 @@ connectDB().then(() => {
     console.log(`Servidor rodando na porta ${PORT}`);
   });
 });
+
 
 
