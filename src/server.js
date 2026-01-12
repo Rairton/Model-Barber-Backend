@@ -11,9 +11,10 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'http://localhost:3000',
-    'https://modelo-barbeiro.vercel.app'
-  ]
+    'https://model-barber.vercel.app'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 }));
 app.use(bodyParser.json());
 app.use('/api', routes);
@@ -26,3 +27,4 @@ connectDB().then(() => {
     console.log(`Servidor rodando na porta ${PORT}`);
   });
 });
+
